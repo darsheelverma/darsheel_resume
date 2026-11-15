@@ -1,0 +1,586 @@
+/* ---------- Colors ---------- */
+:root {
+    --bg: #f3eee0;
+    --text: #1b1a17;
+    --muted: #5d574a;
+    --line: #1b1a17;
+    --card: #ebe5d3;
+    --accent: #8b1a1a;
+    --light: #f3eee0;
+}
+
+/* dark mode (follows the device setting) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1c1b18;
+        --text: #ece6d4;
+        --muted: #a79f8b;
+        --line: #ece6d4;
+        --card: #26241f;
+        --accent: #e08a7a;
+        --light: #1c1b18;
+    }
+}
+
+/* ---------- Base ---------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+a {
+    color: var(--accent);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 20px 40px;
+}
+
+section {
+    margin-bottom: 104px;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    display: inline-block;
+    margin: 0 0 30px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--line);
+}
+
+/* ---------- Navigation ---------- */
+.navbar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    margin: 12px 0 40px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+}
+
+.navbar a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+}
+
+.navbar a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* ---------- Home ---------- */
+.hero {
+    text-align: center;
+    padding: 24px 0 48px;
+    margin-bottom: 40px;
+}
+
+.small-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 10vw, 5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin: 0 0 6px;
+}
+
+.role {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.intro {
+    max-width: 640px;
+    margin: 0 auto 18px;
+    font-size: 1.02rem;
+    font-style: italic;
+    color: var(--muted);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--text);
+    color: var(--light);
+    border: 2px solid var(--text);
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+}
+
+.btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.band {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin-bottom: 72px;
+    padding: 10px;
+    background: var(--text);
+    color: var(--light);
+    border-radius: 6px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+}
+
+/* ---------- About ---------- */
+.about-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    justify-items: center;
+}
+
+.about-text {
+    max-width: 760px;
+}
+
+.id-outer {
+    width: 100%;
+    max-width: 420px;
+    padding: 34px 18px 26px;
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+}
+
+.id-card {
+    position: relative;
+    padding: 32px 20px 22px;
+    background: var(--bg);
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 6px 6px 0 var(--line);
+}
+
+/* the little tab on top of the card */
+.id-card::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96px;
+    height: 20px;
+    background: var(--accent);
+    border: 2px solid var(--line);
+    border-radius: 8px;
+}
+
+.id-label {
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+}
+
+.id-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 12%;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.id-name {
+    margin: 18px 0 12px;
+    text-align: center;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1.9rem, 7vw, 2.4rem);
+    line-height: 1.1;
+}
+
+.id-card hr {
+    border: 0;
+    border-top: 2px dashed var(--line);
+    margin: 0 0 14px;
+}
+
+.id-card dl {
+    display: grid;
+    grid-template-columns: 86px 1fr;
+    gap: 9px 12px;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.id-card dt {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.id-card dd {
+    margin: 0;
+}
+
+/* ---------- Quote ---------- */
+.quote {
+    max-width: 760px;
+    margin: 0 auto 104px;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.quote blockquote {
+    margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.25rem, 3.4vw, 1.9rem);
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.quote blockquote::before {
+    content: "“";
+    display: block;
+    font-size: 3.4rem;
+    line-height: 0.6;
+    color: var(--accent);
+}
+
+/* ---------- Highlights ---------- */
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.highlight {
+    padding: 16px 8px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+}
+
+.highlight:last-child {
+    border-right: 0;
+}
+
+.highlight b {
+    display: block;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 4vw, 2.3rem);
+    line-height: 1.1;
+    color: var(--accent);
+}
+
+.highlight span {
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+/* ---------- Cards ---------- */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.card {
+    padding: 16px 18px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+    font-size: 1.08rem;
+    margin: 2px 0 4px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.card-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+}
+
+.card .meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--muted);
+}
+
+.card ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.92rem;
+}
+
+.card li {
+    margin-bottom: 4px;
+}
+
+.marks {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+    border-bottom: 1px dotted var(--muted);
+}
+
+/* ---------- Skills ---------- */
+.skill-title {
+    margin: 22px 0 8px;
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chips span {
+    padding: 4px 12px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.82rem;
+}
+
+/* ---------- Contact ---------- */
+.contact {
+    padding: 32px 16px;
+    text-align: center;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.contact h2 {
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 900;
+    margin: 0 0 8px;
+}
+
+.contact p {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact .buttons {
+    margin-top: 14px;
+}
+
+footer {
+    margin-top: 48px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+/* ---------- Tablet and mobile ---------- */
+@media (max-width: 860px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .highlight:nth-child(2) {
+        border-right: 0;
+    }
+
+    .highlight:nth-child(-n+2) {
+        border-bottom: 1px solid var(--line);
+    }
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 1000px) {
+    body {
+        font-size: 17px;
+    }
+
+    .container {
+        max-width: 1200px;
+        padding: 24px 56px 70px;
+    }
+
+    .navbar {
+        gap: 6px 36px;
+        padding: 16px 0;
+        margin-bottom: 56px;
+    }
+
+    .navbar a {
+        font-size: 0.95rem;
+    }
+
+    .hero {
+        padding: 48px 0 72px;
+        margin-bottom: 64px;
+    }
+
+    .hero h1 {
+        font-size: 6rem;
+    }
+
+    .intro {
+        max-width: 720px;
+        font-size: 1.15rem;
+    }
+
+    .band {
+        padding: 14px;
+        margin-bottom: 96px;
+        font-size: 0.9rem;
+    }
+
+    section {
+        margin-bottom: 120px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 38px;
+    }
+
+    .about-wrap {
+        grid-template-columns: 400px 1fr;
+        gap: 64px;
+        justify-items: stretch;
+        align-items: start;
+    }
+
+    .about-text {
+        max-width: none;
+        font-size: 1.05rem;
+    }
+
+    .about-text p {
+        margin-bottom: 16px;
+    }
+
+    .grid-3,
+    .grid-2 {
+        gap: 32px;
+    }
+
+    .card {
+        padding: 24px 28px;
+    }
+
+    .card p,
+    .card li {
+        font-size: 0.98rem;
+    }
+
+    .highlight {
+        padding: 26px 12px;
+    }
+
+    .contact {
+        padding: 56px 24px;
+    }
+}
